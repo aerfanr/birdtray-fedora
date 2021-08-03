@@ -9,7 +9,7 @@ License:        GPLv3+
 URL:            https://github.com/gyunaev/birdtray
 Source0:        https://github.com/gyunaev/birdtray/archive/refs/tags/v%{version}.tar.gz
 
-BuildRequires:  cmake, qt5-qtbase-devel, qt5-qtx11extras-devel, qt5-qtsvg-devel, gettext, desktop-file-utils, libappstream-glib
+BuildRequires:  cmake, qt5-qtbase-devel, qt5-qtx11extras-devel, qt5-qtsvg-devel, qt5-linguist, gettext, desktop-file-utils, libappstream-glib
 Requires:       thunderbird
 
 %description
