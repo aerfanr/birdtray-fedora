@@ -9,11 +9,20 @@ License:        GPLv3+
 URL:            https://github.com/gyunaev/birdtray
 Source0:        https://github.com/gyunaev/birdtray/archive/refs/tags/v%{version}.tar.gz
 
-BuildRequires:  cmake, qt5-qtbase-devel, qt5-qtx11extras-devel, qt5-qtsvg-devel, qt5-linguist, gettext, desktop-file-utils, libappstream-glib
-Requires:       thunderbird
+BuildRequires:  cmake
+BuildRequires:  qt5-qtbase-devel
+BuildRequires:  qt5-qtx11extras-devel
+BuildRequires:  qt5-qtsvg-devel
+BuildRequires:  qt5-linguist
+BuildRequires:  gettext
+BuildRequires:  desktop-file-utils
+BuildRequires:  libappstream-glib
+
+Recommends:     thunderbird
 
 %description
-Birdtray is a system tray new mail notification for Thunderbird, which does not require extensions.
+Birdtray is a system tray new mail notification for Thunderbird, which does not
+require extensions.
 
 %prep
 %autosetup
@@ -25,7 +34,6 @@ Birdtray is a system tray new mail notification for Thunderbird, which does not 
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %cmake_install
 
 #find translation files
@@ -42,11 +50,14 @@ appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/%{name}.metai
 
 
 %files -f main.lang -f dynamic.lang
+%license LICENSE.txt
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
+%{_metainfodir}/%{name}.metainfo.xml
+
+#icons:
 %{_datadir}/icons/*/*/apps/%{longname}.png
 %{_datadir}/icons/*/*/apps/%{longname}.svg
-%{_metainfodir}/%{name}.metainfo.xml
 
 
 %changelog
