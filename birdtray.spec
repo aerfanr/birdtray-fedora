@@ -9,6 +9,7 @@ License:        GPLv3+
 URL:            https://github.com/gyunaev/birdtray
 Source0:        https://github.com/gyunaev/birdtray/archive/refs/tags/v%{version}.tar.gz
 
+BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtx11extras-devel
