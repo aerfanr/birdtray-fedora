@@ -62,5 +62,5 @@ appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/%{name}.metai
 
 
 %changelog
-* Tue Aug 03 2021 Amirerfan Rafati <aerfanr@mailo.com> - 1.9.0-1
+* Tue Aug 04 2021 Amirerfan Rafati <aerfanr@mailo.com> - 1.9.0-1
 - Initial version of the package
