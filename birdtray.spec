@@ -2,12 +2,12 @@
 
 Name:           birdtray
 Version:        1.9.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        System tray icon for Thunderbird
 
 License:        GPLv3+
 URL:            https://github.com/gyunaev/birdtray
-Source0:        https://github.com/gyunaev/birdtray/archive/refs/tags/v%{version}.tar.gz
+Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
@@ -28,11 +28,9 @@ require extensions.
 %prep
 %autosetup
 
-
 %build
 %cmake -DCMAKE_BUILD_TYPE=Release
 %cmake_build
-
 
 %install
 %cmake_install
@@ -49,9 +47,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 mv %{buildroot}/%{_metainfodir}/%{longname}.appdata.xml %{buildroot}/%{_metainfodir}/%{name}.metainfo.xml
 appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/%{name}.metainfo.xml
 
-
 %files -f main.lang -f dynamic.lang
 %license LICENSE.txt
+%doc README.md
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_metainfodir}/%{name}.metainfo.xml
@@ -62,5 +60,8 @@ appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/%{name}.metai
 
 
 %changelog
-* Tue Aug 04 2021 Amirerfan Rafati <aerfanr@mailo.com> - 1.9.0-1
+* Thu Aug 05 2021 Amirerfan Rafari <aerfanr@mailo.com> - 1.9.0-2
+- Added README.md as document file
+- Cleaned .spec file
+* Wed Aug 04 2021 Amirerfan Rafati <aerfanr@mailo.com> - 1.9.0-1
 - Initial version of the package
